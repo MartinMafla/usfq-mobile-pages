@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -13,80 +14,62 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Colores personalizados para la USFQ */
+    --usfq-black: 0 0% 13%; /* #231F20 */
+    --usfq-red: 0 100% 50%; /* #FF0000 */
+    --usfq-gray: 220 1% 30%; /* #4A4B4C */
+    --usfq-white: 0 0% 100%; /* #FFFFFF */
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 0% 13%; /* #231F20 */
+    --primary-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --secondary: 0 100% 50%; /* #FF0000 */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --muted: 220 1% 30%; /* #4A4B4C */
+    --muted-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --accent: 220 1% 80%;
+    --accent-foreground: 0 0% 13%; /* #231F20 */
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --destructive: 0 100% 50%; /* #FF0000 */
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 1% 30%;
+    --input: 220 1% 90%;
+    --ring: 0 100% 50%; /* #FF0000 */
 
     --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 0 0% 13%; /* #231F20 */
+    --foreground: 0 0% 100%; /* #FFFFFF */
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 13%; /* #231F20 */
+    --card-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 13%; /* #231F20 */
+    --popover-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 0% 100%; /* #FFFFFF */
+    --primary-foreground: 0 0% 13%; /* #231F20 */
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 0 100% 50%; /* #FF0000 */
+    --secondary-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 220 1% 30%; /* #4A4B4C */
+    --muted-foreground: 0 0% 80%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 220 1% 30%; /* #4A4B4C */
+    --accent-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 100% 50%; /* #FF0000 */
+    --destructive-foreground: 0 0% 100%; /* #FFFFFF */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --border: 220 1% 30%; /* #4A4B4C */
+    --input: 0 0% 20%;
+    --ring: 0 100% 50%; /* #FF0000 */
   }
 }
 
@@ -97,5 +80,97 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Roboto', sans-serif;
   }
+}
+
+/* Estilos compartidos para las landing pages USFQ */
+.usfq-container {
+  @apply max-w-md mx-auto min-h-screen flex flex-col bg-[#f5f5f5];
+}
+
+.usfq-header {
+  @apply flex items-center justify-between p-4 bg-[#231F20] text-white;
+}
+
+.usfq-footer {
+  @apply text-center text-xs p-2 border-t bg-[#f5f5f5] text-[#4A4B4C];
+}
+
+.usfq-section {
+  @apply p-4;
+}
+
+.usfq-title {
+  @apply text-2xl font-bold mb-2 text-[#231F20];
+}
+
+.usfq-subtitle {
+  @apply text-lg font-semibold mb-3 text-[#231F20];
+}
+
+.usfq-card {
+  @apply bg-white p-4 rounded-md shadow-sm my-3;
+}
+
+.usfq-button-primary {
+  @apply bg-[#4A4B4C] text-white rounded-full px-8 py-3 font-semibold 
+         uppercase text-center block mx-auto w-3/4 hover:bg-[#333333] transition-colors;
+}
+
+.usfq-button-secondary {
+  @apply bg-[#FF0000] text-white rounded-full px-6 py-2 font-semibold 
+         uppercase text-center block mx-auto w-3/4 hover:bg-[#cc0000] transition-colors;
+}
+
+.usfq-input {
+  @apply w-full p-2 border border-[#4A4B4C]/30 rounded mb-4;
+}
+
+.usfq-checkbox {
+  @apply mr-2;
+}
+
+.usfq-banner {
+  @apply w-full bg-[#f0f0f0] mb-4 relative;
+}
+
+.usfq-banner-content {
+  @apply bg-white/80 p-4 absolute bottom-0 left-0 right-0;
+}
+
+.usfq-area {
+  @apply flex items-center my-2;
+}
+
+.usfq-area-icon {
+  @apply w-10 h-10 rounded-full bg-[#4A4B4C] flex items-center justify-center mr-3;
+}
+
+.usfq-highlight {
+  @apply font-bold text-[#FF0000];
+}
+
+.usfq-accordion {
+  @apply border-t border-[#4A4B4C]/30 py-3;
+}
+
+.usfq-testimonial {
+  @apply bg-white rounded-md p-4 my-3 shadow-sm;
+}
+
+.usfq-testimonial-avatar {
+  @apply w-12 h-12 rounded-full bg-[#4A4B4C] flex items-center justify-center mr-3;
+}
+
+.usfq-stat-box {
+  @apply bg-white p-4 rounded-md text-center;
+}
+
+.usfq-progress-bar {
+  @apply w-full h-2 bg-[#e0e0e0] rounded my-1;
+}
+
+.usfq-progress-fill {
+  @apply h-full bg-[#4A4B4C] rounded;
 }
