@@ -4,6 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { toast } from "@/components/ui/use-toast";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import { Label } from "@/components/ui/label";
+import { Form, FormField, FormItem, FormLabel, FormControl } from "@/components/ui/form";
 
 const ProfesionalesAccion = () => {
   const navigate = useNavigate();
@@ -55,145 +59,159 @@ const ProfesionalesAccion = () => {
     <div className="usfq-container">
       <Header pageType="profesionales" />
       
-      <main className="flex-1">
+      <main className="flex-1 bg-[#f8f9fa]">
         <section className="usfq-section">
-          <h2 className="usfq-title">Solicita información personalizada</h2>
-          <p className="text-sm text-[#4A4B4C] mb-4">
-            Obtén detalles sobre convalidaciones y modalidades.
-          </p>
+          <div className="bg-white rounded-2xl shadow-lg p-6 mb-6">
+            <h2 className="usfq-title text-center">Solicita información personalizada</h2>
+            <p className="text-sm text-[#4A4B4C] mb-4 text-center">
+              Obtén detalles sobre convalidaciones y modalidades.
+            </p>
+          </div>
           
-          <form onSubmit={handleSubmit} className="mt-6">
-            <div className="mb-4">
-              <label htmlFor="nombre" className="block text-sm mb-1">
-                Nombres completos*
-              </label>
-              <input
-                type="text"
-                id="nombre"
-                name="nombre"
-                value={formData.nombre}
-                onChange={handleChange}
-                className="usfq-input"
-                required
-              />
+          <form onSubmit={handleSubmit} className="mt-6 bg-white p-6 rounded-2xl shadow-lg">
+            <div className="space-y-5">
+              <div>
+                <Label htmlFor="nombre" className="text-sm font-medium text-[#231F20] block mb-2">
+                  Nombres completos*
+                </Label>
+                <Input
+                  type="text"
+                  id="nombre"
+                  name="nombre"
+                  value={formData.nombre}
+                  onChange={handleChange}
+                  className="bg-[#f8f9fa] border border-gray-100 rounded-xl h-12 focus:border-[#FF0000] focus:ring-2 focus:ring-[#FF0000]/20 shadow-sm"
+                  required
+                />
+              </div>
+              
+              <div>
+                <Label htmlFor="correo" className="text-sm font-medium text-[#231F20] block mb-2">
+                  Correo electrónico*
+                </Label>
+                <Input
+                  type="email"
+                  id="correo"
+                  name="correo"
+                  value={formData.correo}
+                  onChange={handleChange}
+                  className="bg-[#f8f9fa] border border-gray-100 rounded-xl h-12 focus:border-[#FF0000] focus:ring-2 focus:ring-[#FF0000]/20 shadow-sm"
+                  required
+                />
+              </div>
+              
+              <div>
+                <Label htmlFor="telefono" className="text-sm font-medium text-[#231F20] block mb-2">
+                  Número de teléfono*
+                </Label>
+                <Input
+                  type="tel"
+                  id="telefono"
+                  name="telefono"
+                  value={formData.telefono}
+                  onChange={handleChange}
+                  className="bg-[#f8f9fa] border border-gray-100 rounded-xl h-12 focus:border-[#FF0000] focus:ring-2 focus:ring-[#FF0000]/20 shadow-sm"
+                  required
+                />
+              </div>
+              
+              <div>
+                <Label htmlFor="profesion" className="text-sm font-medium text-[#231F20] block mb-2">
+                  Profesión actual*
+                </Label>
+                <Input
+                  type="text"
+                  id="profesion"
+                  name="profesion"
+                  value={formData.profesion}
+                  onChange={handleChange}
+                  className="bg-[#f8f9fa] border border-gray-100 rounded-xl h-12 focus:border-[#FF0000] focus:ring-2 focus:ring-[#FF0000]/20 shadow-sm"
+                  required
+                />
+              </div>
+              
+              <div>
+                <Label htmlFor="areaInteres" className="text-sm font-medium text-[#231F20] block mb-2">
+                  Área de interés principal*
+                </Label>
+                <select
+                  id="areaInteres"
+                  name="areaInteres"
+                  value={formData.areaInteres}
+                  onChange={handleChange}
+                  className="w-full bg-[#f8f9fa] border border-gray-100 rounded-xl h-12 px-3 focus:border-[#FF0000] focus:ring-2 focus:ring-[#FF0000]/20 shadow-sm"
+                  required
+                >
+                  <option value="">Selecciona una opción</option>
+                  <option value="ux">Diseño UX/UI</option>
+                  <option value="desarrollo">Desarrollo Web</option>
+                  <option value="realidad">Realidad Virtual/Aumentada</option>
+                  <option value="motion">Motion Graphics</option>
+                </select>
+              </div>
+              
+              <div>
+                <Label htmlFor="experiencia" className="text-sm font-medium text-[#231F20] block mb-2">
+                  ¿Tienes experiencia en diseño?*
+                </Label>
+                <select
+                  id="experiencia"
+                  name="experiencia"
+                  value={formData.experiencia}
+                  onChange={handleChange}
+                  className="w-full bg-[#f8f9fa] border border-gray-100 rounded-xl h-12 px-3 focus:border-[#FF0000] focus:ring-2 focus:ring-[#FF0000]/20 shadow-sm"
+                  required
+                >
+                  <option value="">Selecciona una opción</option>
+                  <option value="ninguna">Sin experiencia</option>
+                  <option value="basica">Experiencia básica</option>
+                  <option value="intermedia">Experiencia intermedia</option>
+                  <option value="avanzada">Experiencia avanzada</option>
+                </select>
+              </div>
+              
+              <div className="flex items-start py-2">
+                <div className="flex h-5 items-center">
+                  <input
+                    type="checkbox"
+                    id="aceptaInfo"
+                    name="aceptaInfo"
+                    checked={formData.aceptaInfo}
+                    onChange={handleCheckboxChange}
+                    className="h-4 w-4 rounded border-gray-300 text-[#FF0000] focus:ring-[#FF0000]/20"
+                    required
+                  />
+                </div>
+                <div className="ml-3 text-sm">
+                  <label htmlFor="aceptaInfo" className="font-medium text-gray-700">
+                    Acepto recibir información de la USFQ*
+                  </label>
+                </div>
+              </div>
             </div>
             
-            <div className="mb-4">
-              <label htmlFor="correo" className="block text-sm mb-1">
-                Correo electrónico*
-              </label>
-              <input
-                type="email"
-                id="correo"
-                name="correo"
-                value={formData.correo}
-                onChange={handleChange}
-                className="usfq-input"
-                required
-              />
-            </div>
-            
-            <div className="mb-4">
-              <label htmlFor="telefono" className="block text-sm mb-1">
-                Número de teléfono*
-              </label>
-              <input
-                type="tel"
-                id="telefono"
-                name="telefono"
-                value={formData.telefono}
-                onChange={handleChange}
-                className="usfq-input"
-                required
-              />
-            </div>
-            
-            <div className="mb-4">
-              <label htmlFor="profesion" className="block text-sm mb-1">
-                Profesión actual*
-              </label>
-              <input
-                type="text"
-                id="profesion"
-                name="profesion"
-                value={formData.profesion}
-                onChange={handleChange}
-                className="usfq-input"
-                required
-              />
-            </div>
-            
-            <div className="mb-4">
-              <label htmlFor="areaInteres" className="block text-sm mb-1">
-                Área de interés principal*
-              </label>
-              <select
-                id="areaInteres"
-                name="areaInteres"
-                value={formData.areaInteres}
-                onChange={handleChange}
-                className="usfq-input"
-                required
-              >
-                <option value="">Selecciona una opción</option>
-                <option value="ux">Diseño UX/UI</option>
-                <option value="desarrollo">Desarrollo Web</option>
-                <option value="realidad">Realidad Virtual/Aumentada</option>
-                <option value="motion">Motion Graphics</option>
-              </select>
-            </div>
-            
-            <div className="mb-4">
-              <label htmlFor="experiencia" className="block text-sm mb-1">
-                ¿Tienes experiencia en diseño?*
-              </label>
-              <select
-                id="experiencia"
-                name="experiencia"
-                value={formData.experiencia}
-                onChange={handleChange}
-                className="usfq-input"
-                required
-              >
-                <option value="">Selecciona una opción</option>
-                <option value="ninguna">Sin experiencia</option>
-                <option value="basica">Experiencia básica</option>
-                <option value="intermedia">Experiencia intermedia</option>
-                <option value="avanzada">Experiencia avanzada</option>
-              </select>
-            </div>
-            
-            <div className="mb-6 flex items-start">
-              <input
-                type="checkbox"
-                id="aceptaInfo"
-                name="aceptaInfo"
-                checked={formData.aceptaInfo}
-                onChange={handleCheckboxChange}
-                className="usfq-checkbox mt-1"
-                required
-              />
-              <label htmlFor="aceptaInfo" className="text-sm">
-                Acepto recibir información de la USFQ*
-              </label>
-            </div>
-            
-            <div className="bg-[#e0e0e0] p-3 rounded-md mb-6">
-              <h4 className="font-medium mb-2">Al enviar, recibirás GRATIS:</h4>
-              <ul className="text-sm space-y-1">
-                <li>• "Guía de Transición a Diseño Digital"</li>
-                <li>• Acceso a webinar exclusivo "Diseño UX/UI para profesionales en transición"</li>
+            <div className="bg-[#f8f9fa] p-5 rounded-xl mt-6 mb-6 shadow-inner border border-gray-100">
+              <h4 className="font-medium mb-3 text-center text-[#231F20]">Al enviar, recibirás GRATIS:</h4>
+              <ul className="space-y-2">
+                <li className="flex items-center text-sm">
+                  <span className="w-5 h-5 rounded-full bg-[#FF0000] text-white flex items-center justify-center mr-2 text-xs shadow-sm">✓</span>
+                  <span className="text-[#4A4B4C]">"Guía de Transición a Diseño Digital"</span>
+                </li>
+                <li className="flex items-center text-sm">
+                  <span className="w-5 h-5 rounded-full bg-[#FF0000] text-white flex items-center justify-center mr-2 text-xs shadow-sm">✓</span>
+                  <span className="text-[#4A4B4C]">Webinar "Diseño UX/UI para profesionales"</span>
+                </li>
               </ul>
             </div>
             
-            <button type="submit" className="usfq-button-primary">
+            <button type="submit" className="modern-red-button">
               ENVIAR AHORA
             </button>
           </form>
           
-          <div className="mt-4 text-center">
-            <h5 className="text-sm font-medium">¿Por qué necesitamos tus datos?</h5>
-            <p className="text-xs text-[#4A4B4C]">
+          <div className="mt-6 p-4 bg-white rounded-xl shadow-md">
+            <h5 className="text-sm font-medium text-center">¿Por qué necesitamos tus datos?</h5>
+            <p className="text-xs text-[#4A4B4C] mt-2 text-center">
               Utilizamos tu información para personalizar la comunicación y brindarte detalles específicos sobre el programa.
               Nunca compartiremos tus datos con terceros.
             </p>

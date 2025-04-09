@@ -86,15 +86,15 @@
 
 /* Estilos compartidos para las landing pages USFQ */
 .usfq-container {
-  @apply max-w-md mx-auto min-h-screen flex flex-col bg-white;
+  @apply max-w-md mx-auto min-h-screen flex flex-col bg-[#f8f9fa];
 }
 
 .usfq-header {
-  @apply flex items-center justify-between p-5 bg-white shadow-sm border-b border-gray-100 rounded-b-xl;
+  @apply flex items-center justify-between p-5 bg-white shadow-md border-b border-gray-100 rounded-b-xl sticky top-0 z-30;
 }
 
 .usfq-footer {
-  @apply text-center text-xs p-4 mt-auto bg-white text-[#4A4B4C] border-t border-gray-100;
+  @apply text-center text-xs p-4 mt-auto bg-white text-[#4A4B4C] border-t border-gray-100 shadow-inner;
 }
 
 .usfq-section {
@@ -110,21 +110,21 @@
 }
 
 .usfq-card {
-  @apply bg-white p-6 rounded-xl shadow-sm my-5 border border-gray-50;
+  @apply bg-white p-6 rounded-2xl shadow-lg my-5 border border-gray-50;
 }
 
 .usfq-button-primary {
-  @apply bg-[#FF0000] text-white rounded-full px-8 py-3 font-medium text-sm
-         uppercase text-center block mx-auto w-full hover:bg-[#e60000] transition-colors shadow-md;
+  @apply bg-gradient-to-r from-[#FF0000] to-[#ff3333] text-white rounded-full px-8 py-3 font-medium text-sm
+         uppercase text-center block mx-auto w-full hover:from-[#e60000] hover:to-[#cc0000] transition-all shadow-lg;
 }
 
 .usfq-button-secondary {
   @apply bg-[#4A4B4C] text-white rounded-full px-6 py-2 font-medium text-sm
-         uppercase text-center block mx-auto w-full hover:bg-[#333333] transition-colors shadow-sm;
+         uppercase text-center block mx-auto w-full hover:bg-[#333333] transition-colors shadow-md;
 }
 
 .usfq-input {
-  @apply w-full p-3 border border-gray-200 rounded-xl mb-4 bg-white focus:outline-none focus:ring-1 focus:ring-[#FF0000] focus:border-[#FF0000] shadow-sm;
+  @apply w-full p-4 border border-gray-200 rounded-xl mb-4 bg-white focus:outline-none focus:ring-2 focus:ring-[#FF0000]/30 focus:border-[#FF0000] shadow-sm;
 }
 
 .usfq-checkbox {
@@ -132,19 +132,19 @@
 }
 
 .usfq-banner {
-  @apply w-full bg-white mb-6 relative overflow-hidden rounded-bl-xl rounded-br-xl shadow-md;
+  @apply w-full bg-white mb-6 relative overflow-hidden rounded-xl shadow-lg;
 }
 
 .usfq-banner-content {
-  @apply bg-white/90 p-5 absolute bottom-0 left-0 right-0 backdrop-blur-sm;
+  @apply bg-white p-5 absolute bottom-0 left-0 right-0 backdrop-blur-sm rounded-t-2xl shadow-lg;
 }
 
 .usfq-area {
-  @apply flex items-center p-4 my-2 bg-white rounded-xl shadow-sm border border-gray-50 hover:border-[#FF0000]/30 transition-all;
+  @apply flex items-center p-5 my-2 bg-white rounded-xl shadow-md border border-gray-50 hover:border-[#FF0000]/30 transition-all;
 }
 
 .usfq-area-icon {
-  @apply w-10 h-10 rounded-xl bg-[#FF0000] flex items-center justify-center mr-4 shadow-sm;
+  @apply w-12 h-12 rounded-xl bg-gradient-to-br from-[#FF0000] to-[#ff3333] flex items-center justify-center mr-4 shadow-md;
 }
 
 .usfq-highlight {
@@ -156,15 +156,15 @@
 }
 
 .usfq-testimonial {
-  @apply bg-white rounded-xl p-6 my-4 shadow-sm border border-gray-50;
+  @apply bg-white rounded-2xl p-6 my-4 shadow-lg border border-gray-50;
 }
 
 .usfq-testimonial-avatar {
-  @apply w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mr-4 border border-gray-200;
+  @apply w-12 h-12 rounded-full bg-gray-100 flex items-center justify-center mr-4 border border-gray-200 shadow-md;
 }
 
 .usfq-stat-box {
-  @apply bg-white p-5 rounded-xl shadow-sm text-center border border-gray-50 hover:border-[#FF0000]/30 transition-all;
+  @apply bg-white p-5 rounded-xl shadow-md text-center border border-gray-50 hover:border-[#FF0000]/30 transition-all;
 }
 
 .usfq-progress-bar {
@@ -172,5 +172,5 @@
 }
 
 .usfq-progress-fill {
-  @apply h-full bg-[#FF0000] rounded-full;
+  @apply h-full bg-gradient-to-r from-[#FF0000] to-[#ff3333] rounded-full;
 }
