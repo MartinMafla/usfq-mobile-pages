@@ -31,20 +31,86 @@
   }
 }
 
+/* Hover effects */
+.hover-scale {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  border-color: rgba(255, 0, 0, 0.3);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: #f8f8f8;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: #4A4B4C;
-  border-radius: 4px;
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #FF0000;
+}
+
+/* Red accent line */
+.red-accent {
+  position: relative;
+}
+
+.red-accent::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #FF0000;
+  border-radius: 2px;
+}
+
+/* Focus effect for inputs */
+.focus-effect {
+  transition: all 0.3s ease;
+}
+
+.focus-effect:focus {
+  box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.2);
+  border-color: #FF0000;
+}
+
+/* Modern red button with hover effect */
+.modern-red-button {
+  background-color: #FF0000;
+  color: white;
+  border-radius: 30px;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.2);
+}
+
+.modern-red-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(255, 0, 0, 0.3);
+  background-color: #e60000;
 }

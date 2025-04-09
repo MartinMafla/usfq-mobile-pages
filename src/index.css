@@ -35,11 +35,11 @@
     --destructive: 0 100% 50%; /* #FF0000 */
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 1% 30%;
+    --border: 220 1% 90%;
     --input: 220 1% 90%;
     --ring: 0 100% 50%; /* #FF0000 */
 
-    --radius: 0.5rem;
+    --radius: 1rem;
   }
 
   .dark {
@@ -86,11 +86,11 @@
 
 /* Estilos compartidos para las landing pages USFQ */
 .usfq-container {
-  @apply max-w-md mx-auto min-h-screen flex flex-col bg-[#f9f9f9];
+  @apply max-w-md mx-auto min-h-screen flex flex-col bg-white;
 }
 
 .usfq-header {
-  @apply flex items-center justify-between p-4 bg-white shadow-sm border-b border-gray-100;
+  @apply flex items-center justify-between p-5 bg-white shadow-sm border-b border-gray-100 rounded-b-xl;
 }
 
 .usfq-footer {
@@ -98,7 +98,7 @@
 }
 
 .usfq-section {
-  @apply p-6;
+  @apply p-6 space-y-6;
 }
 
 .usfq-title {
@@ -110,12 +110,12 @@
 }
 
 .usfq-card {
-  @apply bg-white p-5 rounded-lg shadow-sm my-4 border border-gray-50;
+  @apply bg-white p-6 rounded-xl shadow-sm my-5 border border-gray-50;
 }
 
 .usfq-button-primary {
   @apply bg-[#FF0000] text-white rounded-full px-8 py-3 font-medium text-sm
-         uppercase text-center block mx-auto w-full hover:bg-[#e60000] transition-colors shadow-sm;
+         uppercase text-center block mx-auto w-full hover:bg-[#e60000] transition-colors shadow-md;
 }
 
 .usfq-button-secondary {
@@ -124,7 +124,7 @@
 }
 
 .usfq-input {
-  @apply w-full p-3 border border-gray-200 rounded-lg mb-4 bg-white focus:outline-none focus:ring-1 focus:ring-[#FF0000] focus:border-[#FF0000];
+  @apply w-full p-3 border border-gray-200 rounded-xl mb-4 bg-white focus:outline-none focus:ring-1 focus:ring-[#FF0000] focus:border-[#FF0000] shadow-sm;
 }
 
 .usfq-checkbox {
@@ -132,7 +132,7 @@
 }
 
 .usfq-banner {
-  @apply w-full bg-white mb-6 relative overflow-hidden;
+  @apply w-full bg-white mb-6 relative overflow-hidden rounded-bl-xl rounded-br-xl shadow-md;
 }
 
 .usfq-banner-content {
@@ -140,11 +140,11 @@
 }
 
 .usfq-area {
-  @apply flex items-center p-3 my-2 bg-white rounded-lg shadow-sm;
+  @apply flex items-center p-4 my-2 bg-white rounded-xl shadow-sm border border-gray-50 hover:border-[#FF0000]/30 transition-all;
 }
 
 .usfq-area-icon {
-  @apply w-10 h-10 rounded-lg bg-[#FF0000] flex items-center justify-center mr-4 shadow-sm;
+  @apply w-10 h-10 rounded-xl bg-[#FF0000] flex items-center justify-center mr-4 shadow-sm;
 }
 
 .usfq-highlight {
@@ -156,7 +156,7 @@
 }
 
 .usfq-testimonial {
-  @apply bg-white rounded-lg p-5 my-4 shadow-sm border border-gray-50;
+  @apply bg-white rounded-xl p-6 my-4 shadow-sm border border-gray-50;
 }
 
 .usfq-testimonial-avatar {
@@ -164,7 +164,7 @@
 }
 
 .usfq-stat-box {
-  @apply bg-white p-5 rounded-lg shadow-sm text-center border border-gray-50;
+  @apply bg-white p-5 rounded-xl shadow-sm text-center border border-gray-50 hover:border-[#FF0000]/30 transition-all;
 }
 
 .usfq-progress-bar {

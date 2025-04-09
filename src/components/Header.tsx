@@ -12,27 +12,42 @@ const Header: React.FC<HeaderProps> = ({ pageType }) => {
   return (
     <header className="usfq-header">
       <div className="flex items-center">
-        <span className="font-medium text-sm text-[#231F20]">USFQ - Medios Interactivos</span>
+        <span className="font-medium text-base text-[#231F20]">USFQ - Medios Interactivos</span>
       </div>
       <div className="relative">
         <button
           onClick={() => setShowProfile(!showProfile)}
-          className="p-2 rounded-full hover:bg-gray-100 transition-colors"
+          className="p-2 rounded-full hover:bg-gray-50 transition-colors flex items-center justify-center"
+          aria-label="Perfil"
         >
-          <User size={20} className="text-[#231F20]" />
+          <div className="w-8 h-8 bg-[#F5F5F5] rounded-full flex items-center justify-center shadow-sm">
+            <User size={18} className="text-[#4A4B4C]" />
+          </div>
         </button>
         
         {showProfile && (
-          <div className="absolute right-0 mt-2 w-48 bg-white text-[#231F20] rounded-lg shadow-lg z-10 p-3 border border-gray-100">
-            <div className="font-medium border-b pb-2 mb-2 text-sm">Portal USFQ</div>
-            <ul className="space-y-2 text-xs">
-              <li><a href="#" className="hover:text-[#FF0000] transition-colors">Iniciar sesión</a></li>
-              <li><a href="#" className="hover:text-[#FF0000] transition-colors">Admisiones</a></li>
-              <li><a href="#" className="hover:text-[#FF0000] transition-colors">Contacto</a></li>
+          <div className="absolute right-0 mt-2 w-56 bg-white text-[#231F20] rounded-xl shadow-lg z-10 p-4 border border-gray-100 scale-in">
+            <div className="font-medium border-b pb-3 mb-3">Portal USFQ</div>
+            <ul className="space-y-3">
+              <li>
+                <a href="#" className="flex items-center text-sm text-[#4A4B4C] hover:text-[#FF0000] transition-colors">
+                  Iniciar sesión
+                </a>
+              </li>
+              <li>
+                <a href="#" className="flex items-center text-sm text-[#4A4B4C] hover:text-[#FF0000] transition-colors">
+                  Admisiones
+                </a>
+              </li>
+              <li>
+                <a href="#" className="flex items-center text-sm text-[#4A4B4C] hover:text-[#FF0000] transition-colors">
+                  Contacto
+                </a>
+              </li>
               <li>
                 <a 
                   href={pageType === 'estudiantes' ? '/profesionales' : '/estudiantes'} 
-                  className="hover:text-[#FF0000] transition-colors"
+                  className="flex items-center text-sm text-[#4A4B4C] hover:text-[#FF0000] transition-colors"
                 >
                   Ver {pageType === 'estudiantes' ? 'profesionales' : 'estudiantes'}
                 </a>
