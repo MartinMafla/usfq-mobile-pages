@@ -34,65 +34,67 @@ const EstudiantesDecision = () => {
       
       <main className="flex-1">
         <section className="usfq-section">
-          <h2 className="usfq-title">¿Por qué estudiar con nosotros?</h2>
+          <h2 className="usfq-title text-center">¿Por qué estudiar con nosotros?</h2>
           
-          <div className="grid grid-cols-2 gap-4 mb-6">
+          <div className="grid grid-cols-2 gap-4 mb-8">
             <div className="usfq-stat-box">
-              <div className="text-2xl font-bold text-[#FF0000]">95%</div>
-              <div className="text-xs">Empleabilidad</div>
+              <div className="text-3xl font-bold text-[#FF0000]">95%</div>
+              <div className="text-xs mt-1 text-[#4A4B4C]">Empleabilidad</div>
             </div>
             <div className="usfq-stat-box">
-              <div className="text-2xl font-bold text-[#FF0000]">15+</div>
-              <div className="text-xs">Convenios</div>
+              <div className="text-3xl font-bold text-[#FF0000]">15+</div>
+              <div className="text-xs mt-1 text-[#4A4B4C]">Convenios</div>
             </div>
           </div>
           
-          <div className="usfq-card mb-6">
+          <div className="usfq-card mb-8">
             <h3 className="usfq-subtitle">Inversión</h3>
-            <table className="w-full text-sm">
-              <tbody>
-                <tr>
-                  <td className="py-1">Valor semestral:</td>
-                  <td className="py-1 font-semibold">$4,500</td>
-                </tr>
-                <tr>
-                  <td className="py-1">Duración:</td>
-                  <td className="py-1 font-semibold">8 semestres</td>
-                </tr>
-              </tbody>
-            </table>
-            <p className="text-xs mt-2">Opciones de financiamiento y becas disponibles</p>
+            <div className="space-y-3">
+              <div className="flex justify-between items-center py-1 border-b border-gray-100">
+                <span className="text-[#4A4B4C]">Valor semestral:</span>
+                <span className="font-semibold text-[#231F20]">$4,500</span>
+              </div>
+              <div className="flex justify-between items-center py-1">
+                <span className="text-[#4A4B4C]">Duración:</span>
+                <span className="font-semibold text-[#231F20]">8 semestres</span>
+              </div>
+            </div>
+            <p className="text-xs mt-4 text-[#4A4B4C] bg-gray-50 p-2 rounded text-center">Opciones de financiamiento y becas disponibles</p>
           </div>
           
-          <h3 className="usfq-subtitle">Lo que dicen nuestros estudiantes</h3>
+          <h3 className="usfq-subtitle text-center">Lo que dicen nuestros estudiantes</h3>
           
           <div className="usfq-testimonial">
-            <div className="flex items-center mb-2">
-              <div className="usfq-testimonial-avatar"></div>
+            <div className="flex items-center mb-3">
+              <div className="usfq-testimonial-avatar">
+                <span className="text-[#4A4B4C] text-lg font-medium">CM</span>
+              </div>
               <div>
-                <div className="font-medium">Carolina M.</div>
+                <div className="font-medium text-[#231F20]">Carolina M.</div>
                 <div className="text-xs text-[#4A4B4C]">Estudiante de 4to semestre</div>
               </div>
             </div>
-            <p className="text-sm">
+            <p className="text-sm text-[#4A4B4C] italic">
               "La mejor decisión que he tomado. Los proyectos son desafiantes y relevantes."
             </p>
           </div>
           
           <div className="usfq-testimonial">
-            <div className="flex items-center mb-2">
-              <div className="usfq-testimonial-avatar"></div>
+            <div className="flex items-center mb-3">
+              <div className="usfq-testimonial-avatar">
+                <span className="text-[#4A4B4C] text-lg font-medium">JP</span>
+              </div>
               <div>
-                <div className="font-medium">Juan P.</div>
+                <div className="font-medium text-[#231F20]">Juan P.</div>
                 <div className="text-xs text-[#4A4B4C]">Graduado 2024</div>
               </div>
             </div>
-            <p className="text-sm">
+            <p className="text-sm text-[#4A4B4C] italic">
               "Conseguí trabajo antes de graduarme gracias a mi portafolio de proyectos."
             </p>
           </div>
           
-          <h3 className="usfq-subtitle mt-6">Preguntas frecuentes</h3>
+          <h3 className="usfq-subtitle text-center mt-8">Preguntas frecuentes</h3>
           
           {frequentQuestions.map((item, index) => (
             <div key={index} className="usfq-accordion">
@@ -100,12 +102,15 @@ const EstudiantesDecision = () => {
                 className="flex items-center justify-between w-full text-left"
                 onClick={() => toggleQuestion(index)}
               >
-                <span>{item.question}</span>
-                {expandedQuestion === index ? <ChevronUp size={18} /> : <Plus size={18} />}
+                <span className="font-medium text-[#231F20]">{item.question}</span>
+                {expandedQuestion === index ? 
+                  <ChevronUp size={18} className="text-[#FF0000]" /> : 
+                  <Plus size={18} className="text-[#FF0000]" />
+                }
               </button>
               
               {expandedQuestion === index && (
-                <div className="mt-2 text-sm text-[#4A4B4C]">
+                <div className="mt-3 text-sm text-[#4A4B4C] bg-gray-50 p-3 rounded-md">
                   {item.answer}
                 </div>
               )}
@@ -113,7 +118,7 @@ const EstudiantesDecision = () => {
           ))}
         </section>
         
-        <div className="p-4">
+        <div className="p-6">
           <button 
             className="usfq-button-primary"
             onClick={() => navigate('/estudiantes/accion')}

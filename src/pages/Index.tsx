@@ -11,9 +11,11 @@ const Index = () => {
   }, [navigate]);
   
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f5f5f5]">
-      <div className="text-center">
-        <h1 className="text-2xl font-bold mb-4">Cargando...</h1>
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <div className="text-center p-6">
+        <div className="w-16 h-16 border-4 border-t-[#FF0000] border-r-[#FF0000] border-b-[#4A4B4C] border-l-[#4A4B4C] rounded-full animate-spin mx-auto mb-4"></div>
+        <h1 className="text-xl font-bold mb-2 text-[#231F20]">Cargando...</h1>
+        <p className="text-sm text-[#4A4B4C]">Redirigiendo a USFQ Medios Interactivos</p>
       </div>
     </div>
   );

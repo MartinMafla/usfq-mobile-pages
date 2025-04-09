@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { toast } from "@/components/ui/use-toast";
+import { Button } from "@/components/ui/button";
 
 const EstudiantesAccion = () => {
   const navigate = useNavigate();
@@ -55,14 +56,14 @@ const EstudiantesAccion = () => {
       
       <main className="flex-1">
         <section className="usfq-section">
-          <h2 className="usfq-title">Da el primer paso hacia tu futuro</h2>
-          <p className="text-sm text-[#4A4B4C] mb-4">
+          <h2 className="usfq-title text-center">Da el primer paso hacia tu futuro</h2>
+          <p className="text-sm text-[#4A4B4C] text-center mb-8">
             Completa este formulario y recibe información personalizada.
           </p>
           
-          <form onSubmit={handleSubmit} className="mt-6">
-            <div className="mb-4">
-              <label htmlFor="nombre" className="block text-sm mb-1">
+          <form onSubmit={handleSubmit} className="mt-8 bg-white p-6 rounded-lg shadow-sm">
+            <div className="mb-5">
+              <label htmlFor="nombre" className="block text-sm font-medium mb-2 text-[#231F20]">
                 Nombres completos*
               </label>
               <input
@@ -72,12 +73,13 @@ const EstudiantesAccion = () => {
                 value={formData.nombre}
                 onChange={handleChange}
                 className="usfq-input"
+                placeholder="Ingresa tu nombre completo"
                 required
               />
             </div>
             
-            <div className="mb-4">
-              <label htmlFor="correo" className="block text-sm mb-1">
+            <div className="mb-5">
+              <label htmlFor="correo" className="block text-sm font-medium mb-2 text-[#231F20]">
                 Correo electrónico*
               </label>
               <input
@@ -87,12 +89,13 @@ const EstudiantesAccion = () => {
                 value={formData.correo}
                 onChange={handleChange}
                 className="usfq-input"
+                placeholder="ejemplo@email.com"
                 required
               />
             </div>
             
-            <div className="mb-4">
-              <label htmlFor="telefono" className="block text-sm mb-1">
+            <div className="mb-5">
+              <label htmlFor="telefono" className="block text-sm font-medium mb-2 text-[#231F20]">
                 Número de teléfono*
               </label>
               <input
@@ -102,12 +105,13 @@ const EstudiantesAccion = () => {
                 value={formData.telefono}
                 onChange={handleChange}
                 className="usfq-input"
+                placeholder="099 123 4567"
                 required
               />
             </div>
             
-            <div className="mb-4">
-              <label htmlFor="colegio" className="block text-sm mb-1">
+            <div className="mb-5">
+              <label htmlFor="colegio" className="block text-sm font-medium mb-2 text-[#231F20]">
                 Colegio actual*
               </label>
               <input
@@ -117,12 +121,13 @@ const EstudiantesAccion = () => {
                 value={formData.colegio}
                 onChange={handleChange}
                 className="usfq-input"
+                placeholder="Nombre de tu colegio"
                 required
               />
             </div>
             
-            <div className="mb-4">
-              <label htmlFor="ingreso" className="block text-sm mb-1">
+            <div className="mb-5">
+              <label htmlFor="ingreso" className="block text-sm font-medium mb-2 text-[#231F20]">
                 ¿Cuándo planeas ingresar?*
               </label>
               <select
@@ -150,16 +155,22 @@ const EstudiantesAccion = () => {
                 className="usfq-checkbox mt-1"
                 required
               />
-              <label htmlFor="aceptaInfo" className="text-sm">
+              <label htmlFor="aceptaInfo" className="text-sm text-[#4A4B4C]">
                 Acepto recibir información de la USFQ*
               </label>
             </div>
             
-            <div className="bg-[#e0e0e0] p-3 rounded-md mb-6">
-              <h4 className="font-medium mb-2">Al enviar, recibirás GRATIS:</h4>
-              <ul className="text-sm space-y-1">
-                <li>• "Guía de Portafolio para Creativos Digitales"</li>
-                <li>• Tour virtual exclusivo de nuestros laboratorios</li>
+            <div className="bg-gray-50 p-5 rounded-lg mb-6 border border-gray-100">
+              <h4 className="font-medium mb-3 text-[#231F20] text-center">Al enviar, recibirás GRATIS:</h4>
+              <ul className="text-sm space-y-2 text-[#4A4B4C]">
+                <li className="flex items-center">
+                  <span className="text-[#FF0000] mr-2">•</span>
+                  "Guía de Portafolio para Creativos Digitales"
+                </li>
+                <li className="flex items-center">
+                  <span className="text-[#FF0000] mr-2">•</span>
+                  Tour virtual exclusivo de nuestros laboratorios
+                </li>
               </ul>
             </div>
             
@@ -168,9 +179,9 @@ const EstudiantesAccion = () => {
             </button>
           </form>
           
-          <div className="mt-4 text-center">
-            <h5 className="text-sm font-medium">¿Por qué necesitamos tus datos?</h5>
-            <p className="text-xs text-[#4A4B4C]">
+          <div className="mt-6 text-center">
+            <h5 className="text-sm font-medium text-[#231F20]">¿Por qué necesitamos tus datos?</h5>
+            <p className="text-xs text-[#4A4B4C] mt-2">
               Utilizamos tu información para personalizar la comunicación y brindarte detalles específicos sobre la carrera.
               Nunca compartiremos tus datos con terceros.
             </p>
