@@ -15,72 +15,19 @@ const VideoBanner: React.FC<VideoBannerProps> = ({ title, subtitle }) => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      {/* Modern gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#231F20] via-[#231F20] to-[#4A4B4C]">
-        {/* Red accent elements */}
-        <motion.div 
-          className="absolute w-64 h-64 rounded-full bg-[#FF0000]/30 bottom-0 -left-20 blur-3xl"
-          animate={{
-            scale: [1, 1.2, 1],
-            opacity: [0.3, 0.35, 0.3]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-          }}
-        />
-        <motion.div 
-          className="absolute w-48 h-48 rounded-full bg-[#FF0000]/25 top-0 -right-10 blur-3xl"
-          animate={{
-            scale: [1, 1.3, 1],
-            opacity: [0.25, 0.3, 0.25]
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            delay: 1
-          }}
-        />
-        
-        {/* Animated particles */}
-        <div className="particles absolute inset-0 opacity-30">
-          {[...Array(12)].map((_, i) => (
-            <motion.div 
-              key={i}
-              className="absolute rounded-full bg-white"
-              style={{
-                width: Math.random() * 4 + 2,
-                height: Math.random() * 4 + 2,
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-              }}
-              animate={{
-                y: [0, -Math.random() * 100 - 50],
-                opacity: [0, 1, 0]
-              }}
-              transition={{
-                duration: Math.random() * 10 + 10,
-                repeat: Infinity,
-                repeatDelay: Math.random() * 5,
-              }}
-            />
-          ))}
+      {/* Background */}
+      <div className="absolute inset-0 bg-[#231F20]">
+        {/* Accent elements */}
+        <div className="absolute w-full h-full opacity-10" 
+          style={{ 
+            backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUgMCBMMTUgMzAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTTAgMTUgMzAgMTUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')",
+            backgroundSize: "30px 30px"
+          }}>
         </div>
-      </div>
-      
-      {/* Diagonal stripes overlay */}
-      <div className="absolute inset-0 opacity-5" 
-        style={{ 
-          backgroundImage: "repeating-linear-gradient(45deg, #ffffff, #ffffff 1px, transparent 1px, transparent 10px)",
-        }}>
-      </div>
-      
-      {/* Animated mesh grid overlay */}
-      <div className="absolute inset-0 opacity-10" 
-        style={{ 
-          backgroundImage: "url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUgMCBMMTUgMzAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTTAgMTUgMzAgMTUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')",
-          backgroundSize: "30px 30px"
-        }}>
+        
+        {/* Accent line */}
+        <div className="absolute top-0 left-0 right-0 h-1 bg-[#FF0000]"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-1 bg-[#FF0000]"></div>
       </div>
       
       {/* Content container with glass effect */}
@@ -104,7 +51,7 @@ const VideoBanner: React.FC<VideoBannerProps> = ({ title, subtitle }) => {
           }}
         >
           <motion.div 
-            className="w-14 h-14 rounded-full bg-gradient-to-br from-[#FF0000] to-[#ff3333] 
+            className="w-14 h-14 rounded-full bg-[#FF0000] 
                       flex items-center justify-center shadow-lg"
             animate={{
               boxShadow: ['0 0 0 0 rgba(255, 0, 0, 0)', '0 0 0 10px rgba(255, 0, 0, 0.2)', '0 0 0 0 rgba(255, 0, 0, 0)']
@@ -130,12 +77,6 @@ const VideoBanner: React.FC<VideoBannerProps> = ({ title, subtitle }) => {
           <p className="text-lg text-white/90 text-center">{subtitle}</p>
         </motion.div>
       </div>
-      
-      {/* Overlay gradients for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30 pointer-events-none"></div>
-
-      {/* Red accent line at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#FF0000]/50 to-[#6a11cb]/50"></div>
     </motion.div>
   );
 };

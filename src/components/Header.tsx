@@ -10,9 +10,16 @@ const Header: React.FC<HeaderProps> = ({ pageType }) => {
   const [showProfile, setShowProfile] = useState(false);
 
   return (
-    <header className="usfq-header">
+    <header className="flex items-center justify-between p-5 bg-white/90 backdrop-blur-lg sticky top-0 z-30 border-b border-white/50 shadow-lg">
       <div className="flex items-center">
-        <span className="font-medium text-base text-[#231F20]">USFQ - Medios Interactivos</span>
+        <div className="h-8">
+          {/* USFQ Logo */}
+          <div className="flex items-center">
+            <div className="text-[#231F20] font-bold text-xl mr-1">USFQ</div>
+            <div className="w-1 h-6 bg-[#FF0000] mx-1"></div>
+            <div className="text-[#4A4B4C] text-sm">Medios Interactivos</div>
+          </div>
+        </div>
       </div>
       <div className="relative">
         <button
