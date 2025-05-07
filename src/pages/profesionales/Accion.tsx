@@ -56,43 +56,71 @@ const ProfesionalesAccion = () => {
     navigate('/profesionales/confirmacion');
   };
   
+  // Animation variants
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1
+      }
+    }
+  };
+  
+  const item = {
+    hidden: { opacity: 0, y: 10 },
+    show: { opacity: 1, y: 0 }
+  };
+  
   return (
     <div className="usfq-container bg-gradient-pattern">
       <Header pageType="profesionales" />
       
-      <main className="flex-1">
+      <main className="flex-1 relative">
         {/* Background gradient layers and design elements */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#f8f9fa] via-white to-[#f8f9fa] -z-10"></div>
-        <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-br from-[#FF0000]/10 to-[#6a11cb]/5 -z-10"></div>
-        <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-gradient-to-br from-[#FF0000]/5 to-transparent blur-3xl -z-10"></div>
-        <div className="absolute bottom-1/4 left-0 w-80 h-80 rounded-full bg-gradient-to-tr from-[#6a11cb]/5 to-transparent blur-3xl -z-10"></div>
+        <div className="absolute inset-0 overflow-hidden -z-10">
+          <div className="absolute top-0 left-0 w-full h-64 bg-gradient-to-br from-[#FF0000]/10 to-[#6a11cb]/5 -z-10"></div>
+          <div className="absolute top-1/4 right-0 w-64 h-64 rounded-full bg-gradient-to-br from-[#FF0000]/5 to-transparent blur-3xl -z-10"></div>
+          <div className="absolute bottom-1/4 left-0 w-80 h-80 rounded-full bg-gradient-to-tr from-[#6a11cb]/5 to-transparent blur-3xl -z-10"></div>
+
+          {/* Líneas de acentuación */}
+          <div className="absolute left-0 top-1/4 w-full h-px bg-gradient-to-r from-[#FF0000]/10 via-transparent to-[#6a11cb]/10"></div>
+          <div className="absolute right-0 top-2/3 w-full h-px bg-gradient-to-r from-[#6a11cb]/10 via-transparent to-[#FF0000]/10"></div>
+
+          {/* Patrón de puntos */}
+          <div className="absolute inset-0 opacity-20" 
+            style={{ 
+              backgroundImage: "radial-gradient(#231F20 1px, transparent 1px)",
+              backgroundSize: "30px 30px"
+            }}>
+          </div>
+        </div>
         
         <section className="usfq-section relative">
           <motion.div 
-            className="glass-card p-6 mb-6"
+            className="accent-card p-6 mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="usfq-title text-center">Solicita información personalizada</h2>
-            <p className="text-sm text-[#4A4B4C] mb-4 text-center">
+            <h2 className="usfq-title text-center mb-3">Solicita información personalizada</h2>
+            <p className="text-sm text-[#4A4B4C] mb-1 text-center">
               Obtén detalles sobre convalidaciones y modalidades.
             </p>
+            
+            {/* Línea divisora decorativa */}
+            <div className="w-20 h-1 mx-auto mt-3 bg-gradient-to-r from-[#FF0000] to-[#6a11cb] rounded-full"></div>
           </motion.div>
           
           <motion.form 
             onSubmit={handleSubmit} 
-            className="mt-6 glass-card p-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mt-6 elevated-card"
+            variants={container}
+            initial="hidden"
+            animate="show"
           >
             <div className="space-y-5">
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.3 }}
-              >
+              <motion.div variants={item}>
                 <Label htmlFor="nombre" className="text-sm font-medium text-[#231F20] block mb-2">
                   Nombres completos*
                 </Label>
@@ -102,16 +130,12 @@ const ProfesionalesAccion = () => {
                   name="nombre"
                   value={formData.nombre}
                   onChange={handleChange}
-                  className="form-input"
+                  className="form-input-enhanced"
                   required
                 />
               </motion.div>
               
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.4 }}
-              >
+              <motion.div variants={item}>
                 <Label htmlFor="correo" className="text-sm font-medium text-[#231F20] block mb-2">
                   Correo electrónico*
                 </Label>
@@ -121,16 +145,12 @@ const ProfesionalesAccion = () => {
                   name="correo"
                   value={formData.correo}
                   onChange={handleChange}
-                  className="form-input"
+                  className="form-input-enhanced"
                   required
                 />
               </motion.div>
               
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.5 }}
-              >
+              <motion.div variants={item}>
                 <Label htmlFor="telefono" className="text-sm font-medium text-[#231F20] block mb-2">
                   Número de teléfono*
                 </Label>
@@ -140,16 +160,12 @@ const ProfesionalesAccion = () => {
                   name="telefono"
                   value={formData.telefono}
                   onChange={handleChange}
-                  className="form-input"
+                  className="form-input-enhanced"
                   required
                 />
               </motion.div>
               
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.6 }}
-              >
+              <motion.div variants={item}>
                 <Label htmlFor="profesion" className="text-sm font-medium text-[#231F20] block mb-2">
                   Profesión actual*
                 </Label>
@@ -159,16 +175,12 @@ const ProfesionalesAccion = () => {
                   name="profesion"
                   value={formData.profesion}
                   onChange={handleChange}
-                  className="form-input"
+                  className="form-input-enhanced"
                   required
                 />
               </motion.div>
               
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.7 }}
-              >
+              <motion.div variants={item}>
                 <Label htmlFor="areaInteres" className="text-sm font-medium text-[#231F20] block mb-2">
                   Área de interés principal*
                 </Label>
@@ -188,11 +200,7 @@ const ProfesionalesAccion = () => {
                 </select>
               </motion.div>
               
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.8 }}
-              >
+              <motion.div variants={item}>
                 <Label htmlFor="experiencia" className="text-sm font-medium text-[#231F20] block mb-2">
                   ¿Tienes experiencia en diseño?*
                 </Label>
@@ -214,9 +222,7 @@ const ProfesionalesAccion = () => {
               
               <motion.div 
                 className="flex items-start py-2"
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.3, delay: 0.9 }}
+                variants={item}
               >
                 <div className="flex h-5 items-center">
                   <input
@@ -238,33 +244,30 @@ const ProfesionalesAccion = () => {
             </div>
             
             <motion.div 
-              className="gradient-card mt-6 mb-6 p-5"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1 }}
+              className="gradient-border mt-8 mb-6"
+              variants={item}
             >
-              <div className="gradient-card-overlay"></div>
-              <h4 className="font-medium mb-3 text-center text-[#231F20]">Al enviar, recibirás GRATIS:</h4>
-              <ul className="space-y-2">
-                <li className="flex items-center text-sm">
-                  <span className="w-5 h-5 rounded-full bg-gradient-to-r from-[#FF0000] to-[#ff5757] text-white flex items-center justify-center mr-2 text-xs shadow-sm">✓</span>
-                  <span className="text-[#4A4B4C]">"Guía de Transición a Diseño Digital"</span>
-                </li>
-                <li className="flex items-center text-sm">
-                  <span className="w-5 h-5 rounded-full bg-gradient-to-r from-[#FF0000] to-[#ff5757] text-white flex items-center justify-center mr-2 text-xs shadow-sm">✓</span>
-                  <span className="text-[#4A4B4C]">Webinar "Diseño UX/UI para profesionales"</span>
-                </li>
-              </ul>
+              <div className="gradient-border-content">
+                <h4 className="font-medium mb-3 text-center text-[#231F20]">Al enviar, recibirás GRATIS:</h4>
+                <ul className="space-y-2">
+                  <li className="flex items-center text-sm">
+                    <span className="w-5 h-5 rounded-full bg-gradient-to-r from-[#FF0000] to-[#ff5757] text-white flex items-center justify-center mr-2 text-xs shadow-sm">✓</span>
+                    <span className="text-[#4A4B4C]">"Guía de Transición a Diseño Digital"</span>
+                  </li>
+                  <li className="flex items-center text-sm">
+                    <span className="w-5 h-5 rounded-full bg-gradient-to-r from-[#FF0000] to-[#ff5757] text-white flex items-center justify-center mr-2 text-xs shadow-sm">✓</span>
+                    <span className="text-[#4A4B4C]">Webinar "Diseño UX/UI para profesionales"</span>
+                  </li>
+                </ul>
+              </div>
             </motion.div>
             
             <motion.button 
               type="submit" 
-              className="modern-red-button"
+              className="glow-button w-full text-center"
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.1 }}
+              variants={item}
             >
               ENVIAR AHORA
             </motion.button>

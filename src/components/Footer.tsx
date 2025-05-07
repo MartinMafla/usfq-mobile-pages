@@ -9,8 +9,8 @@ const Footer = () => {
       <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/90 backdrop-blur-md -z-10"></div>
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCAzMCAzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUgMCBMMTUgMzAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PHBhdGggZD0iTTAgMTUgMzAgMTUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')] opacity-10 -z-10"></div>
       
-      {/* Top shadow/border */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#231F20]/10 to-transparent"></div>
+      {/* Red accent line at top */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#FF0000]/30 to-transparent"></div>
       <div className="absolute top-0 left-0 right-0 h-8 bg-gradient-to-b from-[#231F20]/5 to-transparent"></div>
 
       <motion.div 
@@ -41,9 +41,9 @@ const Footer = () => {
           </div>
         </motion.div>
         <motion.div
-          className="bg-gradient-to-r from-[#FF0000]/5 to-[#6a11cb]/5 rounded-full px-5 py-1 backdrop-blur-sm"
+          className="bg-gradient-to-r from-[#FF0000]/10 to-[#6a11cb]/10 rounded-full px-5 py-1 backdrop-blur-sm"
           whileHover={{ 
-            backgroundImage: "linear-gradient(to right, rgba(255, 0, 0, 0.1), rgba(106, 17, 203, 0.1))"
+            backgroundImage: "linear-gradient(to right, rgba(255, 0, 0, 0.15), rgba(106, 17, 203, 0.15))"
           }}
         >
           <span className="text-xs text-[#4A4B4C] opacity-75">© {new Date().getFullYear()} Universidad San Francisco de Quito</span>
