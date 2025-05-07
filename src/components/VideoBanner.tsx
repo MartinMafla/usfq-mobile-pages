@@ -16,7 +16,32 @@ const VideoBanner: React.FC<VideoBannerProps> = ({ title, subtitle }) => {
       transition={{ duration: 0.5 }}
     >
       {/* Modern gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#6a11cb] to-[#FF0000]">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#231F20] via-[#231F20] to-[#4A4B4C]">
+        {/* Red accent elements */}
+        <motion.div 
+          className="absolute w-64 h-64 rounded-full bg-[#FF0000]/20 bottom-0 -left-20 blur-3xl"
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.25, 0.2]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+          }}
+        />
+        <motion.div 
+          className="absolute w-48 h-48 rounded-full bg-[#FF0000]/15 top-0 -right-10 blur-3xl"
+          animate={{
+            scale: [1, 1.3, 1],
+            opacity: [0.15, 0.2, 0.15]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            delay: 1
+          }}
+        />
+        
         {/* Animated particles */}
         <div className="particles absolute inset-0 opacity-20">
           {[...Array(12)].map((_, i) => (
@@ -50,31 +75,6 @@ const VideoBanner: React.FC<VideoBannerProps> = ({ title, subtitle }) => {
           backgroundSize: "30px 30px"
         }}>
       </div>
-      
-      {/* Light accent elements */}
-      <motion.div 
-        className="absolute w-32 h-32 rounded-full bg-white/15 -top-10 -right-10 blur-2xl"
-        animate={{
-          scale: [1, 1.2, 1],
-          opacity: [0.1, 0.2, 0.1]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-        }}
-      />
-      <motion.div 
-        className="absolute w-24 h-24 rounded-full bg-white/15 bottom-10 -left-5 blur-xl"
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.1, 0.3, 0.1]
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          delay: 1
-        }}
-      />
       
       {/* Content container with glass effect */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
@@ -114,7 +114,7 @@ const VideoBanner: React.FC<VideoBannerProps> = ({ title, subtitle }) => {
         
         {/* Title and subtitle with glassmorphic card */}
         <motion.div 
-          className="bg-white/10 backdrop-blur-lg border border-white/30 rounded-2xl px-6 py-4 shadow-xl"
+          className="bg-black/30 backdrop-blur-lg border border-white/10 rounded-2xl px-6 py-4 shadow-xl"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3, duration: 0.6 }}

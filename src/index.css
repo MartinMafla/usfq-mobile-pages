@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -114,9 +115,30 @@
   }
 }
 
+/* Gradient backgrounds */
+.bg-gradient-pattern {
+  position: relative;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.bg-gradient-pattern::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    linear-gradient(135deg, rgba(255,0,0,0.03) 0%, rgba(255,255,255,0) 50%),
+    linear-gradient(45deg, rgba(106,17,203,0.02) 0%, rgba(255,255,255,0) 50%),
+    linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(248,249,250,1) 100%);
+  z-index: -1;
+}
+
 /* Estilos compartidos para las landing pages USFQ */
 .usfq-container {
-  @apply max-w-md mx-auto min-h-screen flex flex-col bg-gradient-to-b from-gray-50 to-white;
+  @apply max-w-md mx-auto min-h-screen flex flex-col relative;
 }
 
 .usfq-header {
@@ -323,4 +345,25 @@
   50% {
     opacity: 0.7;
   }
+}
+
+/* Background patterns for depth */
+.bg-dots {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-lines {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Gradient text */
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#FF0000] to-[#6a11cb];
+}
+
+/* Black to gray gradient text */
+.text-gradient-dark {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#231F20] to-[#4A4B4C];
 }
