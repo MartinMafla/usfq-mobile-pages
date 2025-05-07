@@ -36,30 +36,49 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
   <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-5RJVCHC849"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5RJVCHC849');
+</script>
   
   <!-- EngageBay Tracking Code (corregido) -->
   <script type="text/javascript">
-    var EhAPI = EhAPI || {}; 
-    EhAPI.after_load = function(){};
-    EhAPI.set_account('ks0md9gi4mprqbbls7eio3dadl', 'hotmail1ymzu');
-    EhAPI.execute('rules');
-    (function(d,s,f) {
-      var sc=document.createElement(s);
-      sc.type='text/javascript';
-      sc.async=true;
-      sc.src=f;
-      var m=document.getElementsByTagName(s)[0];
-      m.parentNode.insertBefore(sc,m);
-    })(document, 'script', '//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v' + new Date().getHours());
+    window.addEventListener('load', function() {
+      // Inicializar EhAPI si no existe
+      window.EhAPI = window.EhAPI || {};
+      
+      // Utilizar setTimeout para asegurarnos de que todo esté cargado
+      setTimeout(function() {
+        try {
+          // Cargar el script de EngageBay manualmente
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.async = true;
+          script.src = '//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v=' + new Date().getHours();
+          
+          script.onload = function() {
+            // Una vez cargado, inicializar EngageBay
+            if (window.EhAPI) {
+              window.EhAPI.after_load = function(){};
+              if (typeof window.EhAPI.set_account === 'function') {
+                window.EhAPI.set_account('ks0md9gi4mprqbbls7eio3dadl', 'hotmail1ymzu');
+                window.EhAPI.execute('rules');
+              }
+            }
+          };
+          
+          document.head.appendChild(script);
+        } catch(e) {
+          console.log('Error al cargar EngageBay:', e);
+        }
+      }, 1000);
+    });
   </script>
-  <script type="module" crossorigin src="/usfq-mobile-pages/assets/index-DbkaJdN9.js"></script>
+  <script type="module" crossorigin src="/usfq-mobile-pages/assets/index-Duxw7Xyg.js"></script>
   <link rel="stylesheet" crossorigin href="/usfq-mobile-pages/assets/index-BA3TuDxd.css">
 </head>
 <body>
