@@ -22,13 +22,7 @@ export default defineConfig(({ mode }) => ({
   base: '/usfq-mobile-pages/', // Base path para GitHub Pages
   build: {
     outDir: 'dist',
-    sourcemap: true,
-    // Optimización para SEO y rendimiento
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-      },
-    },
+    sourcemap: false, // Cambiado de true a false para simplificar
+    minify: 'esbuild', // Cambiado de 'terser' a 'esbuild' (más rápido y ya incluido)
   },
 }));
