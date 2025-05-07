@@ -1,10 +1,11 @@
-
+// src/pages/profesionales/Confirmacion.tsx (modificado)
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import { CheckCircle, ArrowLeft } from 'lucide-react';
 import { useScrollToTop } from '@/utils/navigation';
+import EmailPreview from '@/components/EmailPreview';
 
 const ProfesionalesConfirmacion = () => {
   useScrollToTop();
@@ -73,6 +74,9 @@ const ProfesionalesConfirmacion = () => {
             </motion.button>
           </div>
         </motion.div>
+        
+        {/* Incluir la previsualización del correo */}
+        <EmailPreview buyerPersona="profesionales" />
       </main>
       
       <Footer />

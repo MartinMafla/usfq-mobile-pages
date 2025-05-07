@@ -1,6 +1,7 @@
-
+// Modificación para VideoBanner.tsx
 import { Play } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 interface VideoBannerProps {
   title: string;
@@ -8,6 +9,8 @@ interface VideoBannerProps {
 }
 
 const VideoBanner: React.FC<VideoBannerProps> = ({ title, subtitle }) => {
+  const [showVideo, setShowVideo] = useState(false);
+  
   return (
     <motion.div 
       className="relative h-72 overflow-hidden rounded-3xl mb-6 mx-4 shadow-xl"
@@ -32,50 +35,71 @@ const VideoBanner: React.FC<VideoBannerProps> = ({ title, subtitle }) => {
       
       {/* Content container with glass effect */}
       <div className="absolute inset-0 flex flex-col items-center justify-center z-10">
-        {/* Modern play button with animation */}
-        <motion.div 
-          className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md 
-                      shadow-xl border border-white/30 mb-6"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ 
-            scale: 1, 
-            opacity: 1,
-          }}
-          transition={{
-            type: "spring",
-            stiffness: 260,
-            damping: 20,
-            delay: 0.2
-          }}
-        >
-          <motion.div 
-            className="w-14 h-14 rounded-full bg-[#FF0000] 
-                      flex items-center justify-center shadow-lg"
-            animate={{
-              boxShadow: ['0 0 0 0 rgba(255, 0, 0, 0)', '0 0 0 10px rgba(255, 0, 0, 0.2)', '0 0 0 0 rgba(255, 0, 0, 0)']
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              repeatDelay: 0.5
-            }}
-          >
-            <Play size={24} className="text-white ml-1" />
-          </motion.div>
-        </motion.div>
-        
-        {/* Title and subtitle with glassmorphic card */}
-        <motion.div 
-          className="bg-black/40 backdrop-blur-lg border border-white/10 rounded-2xl px-6 py-4 shadow-xl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
-          <h1 className="text-2xl font-bold text-white mb-1 text-center">{title}</h1>
-          <p className="text-lg text-white/90 text-center">{subtitle}</p>
-        </motion.div>
+        {showVideo ? (
+          <div className="w-full h-full px-4 flex items-center justify-center">
+            <div className="relative w-full max-w-md aspect-video">
+              <iframe 
+                width="100%" 
+                height="100%" 
+                src="https://www.youtube.com/embed/MtnzIRr2UjA?si=IaZgWc2A-yOLKU03&autoplay=1" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                referrerPolicy="strict-origin-when-cross-origin" 
+                allowFullScreen
+                className="rounded-lg shadow-2xl"
+              ></iframe>
+            </div>
+          </div>
+        ) : (
+          <>
+            {/* Modern play button with animation */}
+            <motion.div 
+              className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-md 
+                        shadow-xl border border-white/30 mb-6 cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              initial={{ scale: 0.8, opacity: 0 }}
+              animate={{ 
+                scale: 1, 
+                opacity: 1,
+              }}
+              transition={{
+                type: "spring",
+                stiffness: 260,
+                damping: 20,
+                delay: 0.2
+              }}
+              onClick={() => setShowVideo(true)}
+            >
+              <motion.div 
+                className="w-14 h-14 rounded-full bg-[#FF0000] 
+                          flex items-center justify-center shadow-lg"
+                animate={{
+                  boxShadow: ['0 0 0 0 rgba(255, 0, 0, 0)', '0 0 0 10px rgba(255, 0, 0, 0.2)', '0 0 0 0 rgba(255, 0, 0, 0)']
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatDelay: 0.5
+                }}
+              >
+                <Play size={24} className="text-white ml-1" />
+              </motion.div>
+            </motion.div>
+            
+            {/* Title and subtitle with glassmorphic card */}
+            <motion.div 
+              className="bg-black/40 backdrop-blur-lg border border-white/10 rounded-2xl px-6 py-4 shadow-xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+            >
+              <h1 className="text-2xl font-bold text-white mb-1 text-center">{title}</h1>
+              <p className="text-lg text-white/90 text-center">{subtitle}</p>
+            </motion.div>
+          </>
+        )}
       </div>
     </motion.div>
   );
