@@ -48,19 +48,21 @@
   <!-- EngageBay Tracking Code (corregido) -->
   <script type="text/javascript">
     (function() {
-      // Load EngageBay script
       var scriptTag = document.createElement('script');
       scriptTag.type = 'text/javascript';
       scriptTag.async = true;
-      scriptTag.src = '//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js';
+      scriptTag.src = '//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v=' + new Date().getTime();
       
-      // Add script to document
       var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+      if (firstScriptTag && firstScriptTag.parentNode) {
+        firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+      } else {
+        document.head.appendChild(scriptTag);
+      }
       
-      // Set up EngageBay account after script loads
+      // Intentar configurar la cuenta después de que se cargue el script
       scriptTag.onload = function() {
-        if (typeof window.EhAPI !== 'undefined' && typeof window.EhAPI.set_account === 'function') {
+        if (window.EhAPI && typeof window.EhAPI.set_account === 'function') {
           window.EhAPI.set_account('ks0md9gi4mprqbbls7eio3dadl', 'hotmail1ymzu');
           window.EhAPI.execute('rules');
         }

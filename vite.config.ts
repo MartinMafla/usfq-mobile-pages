@@ -1,28 +1,24 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
-import { componentTagger } from "lovable-tagger";
 
-// https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
   },
   plugins: [
-    react(),
-    mode === 'development' &&
-    componentTagger(),
-  ].filter(Boolean),
+    react()
+  ],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: '/usfq-mobile-pages/', // Base path para GitHub Pages
+  base: mode === 'production' ? '/usfq-mobile-pages/' : '/',
   build: {
     outDir: 'dist',
-    sourcemap: false, // Cambiado de true a false para simplificar
-    minify: 'esbuild', // Cambiado de 'terser' a 'esbuild' (más rápido y ya incluido)
+    sourcemap: false,
+    minify: 'esbuild',
   },
 }));
