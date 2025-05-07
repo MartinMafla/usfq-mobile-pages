@@ -1,4 +1,4 @@
-// src/components/EngageBayForm.tsx (versión modificada)
+// src/components/EngageBayForm.tsx (versión corregida)
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
@@ -19,7 +19,7 @@ const EngageBayForm: React.FC<EngageBayFormProps> = ({
 }) => {
   const formContainerRef = useRef<HTMLDivElement>(null);
   
-  // Cargamos manualmente el script para cada formulario
+  // Configuramos el contenedor del formulario sin cargar el script nuevamente
   useEffect(() => {
     if (formContainerRef.current) {
       // Limpiar cualquier formulario existente
@@ -34,25 +34,15 @@ const EngageBayForm: React.FC<EngageBayFormProps> = ({
       // Añadir el div al contenedor
       formContainerRef.current.appendChild(formDiv);
       
-      // Cargar el script de EngageBay específicamente para este formulario
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = `//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v=${new Date().getHours()}`;
-      
-      // Añadir el script al documento
-      document.body.appendChild(script);
+      // Intentar inicializar el formulario si EhAPI está disponible
+      if (window.EhAPI && typeof window.EhAPI.render_form === 'function') {
+        setTimeout(() => {
+          window.EhAPI.render_form(formId);
+        }, 500);
+      }
     }
     
-    // Limpiar al desmontar
-    return () => {
-      // Eliminar scripts que pudimos haber añadido
-      const scripts = document.querySelectorAll('script[src*="ehform.js"]');
-      scripts.forEach(script => {
-        if (script.parentNode) {
-          script.parentNode.removeChild(script);
-        }
-      });
-    };
+    // No es necesario limpiar en este caso
   }, [formId, dataId]);
   
   return (

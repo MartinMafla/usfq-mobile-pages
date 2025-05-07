@@ -51,22 +51,9 @@
       var scriptTag = document.createElement('script');
       scriptTag.type = 'text/javascript';
       scriptTag.async = true;
-      scriptTag.src = '//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v=' + new Date().getTime();
-      
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      if (firstScriptTag && firstScriptTag.parentNode) {
-        firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
-      } else {
-        document.head.appendChild(scriptTag);
-      }
-      
-      // Intentar configurar la cuenta después de que se cargue el script
-      scriptTag.onload = function() {
-        if (window.EhAPI && typeof window.EhAPI.set_account === 'function') {
-          window.EhAPI.set_account('ks0md9gi4mprqbbls7eio3dadl', 'hotmail1ymzu');
-          window.EhAPI.execute('rules');
-        }
-      };
+      scriptTag.src = 'https://d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v=' + new Date().getTime();
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(scriptTag, s);
     })();
   </script>
 </head>
