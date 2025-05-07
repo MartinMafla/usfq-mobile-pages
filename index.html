@@ -47,38 +47,29 @@
   
   <!-- EngageBay Tracking Code (corregido) -->
   <script type="text/javascript">
-    window.addEventListener('load', function() {
-      // Inicializar EhAPI si no existe
-      window.EhAPI = window.EhAPI || {};
+    (function() {
+      var scriptTag = document.createElement('script');
+      scriptTag.type = 'text/javascript';
+      scriptTag.async = true;
+      scriptTag.src = '//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v=' + new Date().getTime();
       
-      // Utilizar setTimeout para asegurarnos de que todo esté cargado
-      setTimeout(function() {
-        try {
-          // Cargar el script de EngageBay manualmente
-          var script = document.createElement('script');
-          script.type = 'text/javascript';
-          script.async = true;
-          script.src = '//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v=' + new Date().getHours();
-          
-          script.onload = function() {
-            // Una vez cargado, inicializar EngageBay
-            if (window.EhAPI) {
-              window.EhAPI.after_load = function(){};
-              if (typeof window.EhAPI.set_account === 'function') {
-                window.EhAPI.set_account('ks0md9gi4mprqbbls7eio3dadl', 'hotmail1ymzu');
-                window.EhAPI.execute('rules');
-              }
-            }
-          };
-          
-          document.head.appendChild(script);
-        } catch(e) {
-          console.log('Error al cargar EngageBay:', e);
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      if (firstScriptTag && firstScriptTag.parentNode) {
+        firstScriptTag.parentNode.insertBefore(scriptTag, firstScriptTag);
+      } else {
+        document.head.appendChild(scriptTag);
+      }
+      
+      // Intentar configurar la cuenta después de que se cargue el script
+      scriptTag.onload = function() {
+        if (window.EhAPI && typeof window.EhAPI.set_account === 'function') {
+          window.EhAPI.set_account('ks0md9gi4mprqbbls7eio3dadl', 'hotmail1ymzu');
+          window.EhAPI.execute('rules');
         }
-      }, 1000);
-    });
+      };
+    })();
   </script>
-  <script type="module" crossorigin src="/usfq-mobile-pages/assets/index-Duxw7Xyg.js"></script>
+  <script type="module" crossorigin src="/usfq-mobile-pages/assets/index-K2asNqz4.js"></script>
   <link rel="stylesheet" crossorigin href="/usfq-mobile-pages/assets/index-BA3TuDxd.css">
 </head>
 <body>
