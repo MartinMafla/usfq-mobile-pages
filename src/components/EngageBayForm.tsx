@@ -1,4 +1,4 @@
-// src/components/EngageBayForm.tsx
+// src/components/EngageBayForm.tsx (versión modificada)
 import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 
@@ -19,34 +19,41 @@ const EngageBayForm: React.FC<EngageBayFormProps> = ({
 }) => {
   const formContainerRef = useRef<HTMLDivElement>(null);
   
-  // Cuando el componente se monte, asegúrate de que el script de EngageBay esté cargado
+  // Cargamos manualmente el script para cada formulario
   useEffect(() => {
-    // Verificar si necesitamos cargar el script de EngageBay nuevamente
-    const loadEngageBayScript = () => {
-      if (typeof window.EhAPI === 'undefined') {
-        const script = document.createElement('script');
-        script.src = '//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v' + new Date().getHours();
-        script.async = true;
-        document.body.appendChild(script);
-
-        script.onload = () => {
-          console.log('EngageBay script loaded');
-          if (window.EhAPI && window.EhAPI.reload) {
-            window.EhAPI.reload();
-          }
-        };
-      } else if (window.EhAPI && window.EhAPI.reload) {
-        window.EhAPI.reload();
-      }
-    };
-
-    loadEngageBayScript();
+    if (formContainerRef.current) {
+      // Limpiar cualquier formulario existente
+      formContainerRef.current.innerHTML = '';
+      
+      // Crear el div para el formulario
+      const formDiv = document.createElement('div');
+      formDiv.className = 'engage-hub-form-embed';
+      formDiv.id = formId;
+      formDiv.setAttribute('data-id', dataId);
+      
+      // Añadir el div al contenedor
+      formContainerRef.current.appendChild(formDiv);
+      
+      // Cargar el script de EngageBay específicamente para este formulario
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `//d2p078bqz5urf7.cloudfront.net/jsapi/ehform.js?v=${new Date().getHours()}`;
+      
+      // Añadir el script al documento
+      document.body.appendChild(script);
+    }
     
     // Limpiar al desmontar
     return () => {
-      // No es necesario hacer nada especial al desmontar
+      // Eliminar scripts que pudimos haber añadido
+      const scripts = document.querySelectorAll('script[src*="ehform.js"]');
+      scripts.forEach(script => {
+        if (script.parentNode) {
+          script.parentNode.removeChild(script);
+        }
+      });
     };
-  }, []);
+  }, [formId, dataId]);
   
   return (
     <section className="usfq-section">
@@ -72,12 +79,7 @@ const EngageBayForm: React.FC<EngageBayFormProps> = ({
         transition={{ duration: 0.4 }}
         ref={formContainerRef}
       >
-        {/* El div donde se cargará el formulario de EngageBay */}
-        <div 
-          className="engage-hub-form-embed" 
-          id={formId} 
-          data-id={dataId}
-        ></div>
+        {/* El formulario se cargará aquí */}
       </motion.div>
       
       <motion.div 
@@ -92,6 +94,13 @@ const EngageBayForm: React.FC<EngageBayFormProps> = ({
           Nunca compartiremos tus datos con terceros.
         </p>
       </motion.div>
+      
+      {/* Formulario alternativo si EngageBay no carga */}
+      <div className="mt-8 text-center">
+        <p className="text-sm text-gray-500">
+          Si el formulario no se carga correctamente, puedes contactarnos directamente a <a href="mailto:info@usfq.edu.ec" className="text-[#FF0000]">info@usfq.edu.ec</a>
+        </p>
+      </div>
     </section>
   );
 };
